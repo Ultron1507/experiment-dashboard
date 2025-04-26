@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import ExperimentDetails from "./pages/ExperimentDetails";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import ExperimentDetails from './pages/ExperimentDetails';
 
 function App() {
   return (
@@ -12,4 +12,5 @@ function App() {
     </Router>
   );
 }
+
 export default App;

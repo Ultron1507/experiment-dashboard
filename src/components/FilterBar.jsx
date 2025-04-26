@@ -1,42 +1,34 @@
-// src/components/FilterBar.jsx
-import { useState } from "react";
+import React from 'react';
 
-const FilterBar = ({ filters, setFilters }) => {
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFilters((prev) => ({ ...prev, [name]: value }));
-  };
-
+const FilterBar = ({ statusFilter, setStatusFilter, searchMetric, setSearchMetric, selectedDate, setSelectedDate }) => {
   return (
-    <div className="mb-6 flex flex-wrap gap-4 items-center">
+    <div className="flex flex-wrap gap-4 items-center mt-10">
+      {/* Status Dropdown */}
       <select
-        name="status"
-        value={filters.status}
-        onChange={handleChange}
-        className="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none"
+        value={statusFilter}
+        onChange={(e) => setStatusFilter(e.target.value)}
+        className="p-2 border rounded-lg"
       >
-        <option value="">All Status</option>
+        <option value="">Status</option>
+        <option value="Active">Active</option>
         <option value="Completed">Completed</option>
-        <option value="Running">Running</option>
-        <option value="Paused">Paused</option>
       </select>
 
+      {/* Date Picker */}
       <input
-        type="text"
-        name="metric"
-        value={filters.metric}
-        onChange={handleChange}
-        placeholder="Search by Metric"
-        className="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none"
+        type="date"
+        value={selectedDate}
+        onChange={(e) => setSelectedDate(e.target.value)}
+        className="p-2 border rounded-lg"
       />
 
+      {/* Metric Search */}
       <input
         type="text"
-        name="date"
-        value={filters.date}
-        onChange={handleChange}
-        placeholder="dd/mm/yyyy"
-        className="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none"
+        value={searchMetric}
+        onChange={(e) => setSearchMetric(e.target.value)}
+        placeholder="Search by Metric"
+        className="p-2 border rounded-lg flex-1"
       />
     </div>
   );
